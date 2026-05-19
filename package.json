@@ -1,41 +1,43 @@
 {
   "name": "react-typescript",
   "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-  "start": "node server.js"
-},
-  "dependencies": {
-  "cors": "latest",
-  "express": "latest",
-  "cheerio": "latest"
-}
   "description": "React and TypeScript example starter project",
+  "type": "module",
+
   "keywords": [
     "typescript",
     "react",
     "starter"
   ],
+
   "main": "src/index.tsx",
+
+  "scripts": {
+    "start": "node server.js",
+    "frontend": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+
   "dependencies": {
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "framer-motion": "12.38.0",
     "loader-utils": "3.2.1",
+    "lucide-react": "1.16.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-scripts": "5.0.1",
-    "framer-motion": "12.38.0",
-    "lucide-react": "1.16.0"
+    "react-scripts": "5.0.1"
   },
+
   "devDependencies": {
     "@types/react": "18.2.38",
     "@types/react-dom": "18.2.15",
     "typescript": "4.4.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
+
   "browserslist": [
     ">0.2%",
     "not dead",
