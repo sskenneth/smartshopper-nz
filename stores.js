@@ -58,13 +58,6 @@ export const stores = [
   },
 
   {
-    name: "Foodlands Four Square",
-    searchUrl:
-      "https://thefoodland.nz/?s=",
-    searchSuffix: "&post_type=product"
-  },
-
-  {
     name: "New World Mosgiel",
     searchUrl:
       "https://www.newworld.co.nz/shop/search?pg=1&q=",
