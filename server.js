@@ -10,18 +10,153 @@ app.use(express.json());
 
 const cache = new Map();
 
-function fallbackPrice(storeName, item) {
   const basePrices = {
-    milk: 5.2,
-    bread: 3.4,
-    cheese: 8.9,
-    chicken: 13.5,
-    eggs: 7.2,
-    butter: 6.8,
-    rice: 4.5,
-    apples: 4.2
-  };
+  milk: 5.2,
+  bread: 3.4,
+  butter: 6.8,
+  cheese: 8.9,
+  eggs: 7.2,
+  chicken: 13.5,
+  beef: 14.9,
+  mince: 11.5,
+  sausages: 7.8,
+  bacon: 8.4,
+  ham: 6.9,
+  yogurt: 5.4,
+  cream: 4.3,
+  icecream: 7.9,
+  rice: 4.5,
+  pasta: 2.9,
+  noodles: 1.8,
+  flour: 3.5,
+  sugar: 3.2,
+  salt: 1.7,
+  pepper: 3.8,
+  cereal: 7.4,
+  oats: 4.6,
+  weetbix: 8.2,
+  coffee: 8.7,
+  tea: 5.1,
+  milo: 6.4,
+  juice: 4.8,
+  coke: 4.5,
+  pepsi: 4.4,
+  sprite: 4.3,
+  water: 2.4,
+  bananas: 3.1,
+  apples: 4.2,
+  oranges: 4.9,
+  grapes: 7.6,
+  strawberries: 5.8,
+  blueberries: 6.9,
+  avocado: 2.5,
+  tomato: 5.1,
+  potatoes: 6.5,
+  onions: 3.7,
+  carrots: 3.2,
+  broccoli: 4.4,
+  lettuce: 3.5,
+  cucumber: 2.9,
+  spinach: 4.6,
+  mushrooms: 5.7,
+  capsicum: 4.9,
+  cornflakes: 6.3,
+  chips: 3.8,
+  crackers: 3.4,
+  biscuits: 4.2,
+  chocolate: 3.7,
+  lollies: 3.1,
+  nuts: 5.8,
+  peanutbutter: 4.7,
+  jam: 4.3,
+  honey: 7.5,
+  tuna: 3.9,
+  salmon: 8.9,
+  bakedbeans: 2.4,
+  spaghetti: 2.3,
+  soup: 3.5,
+  pizza: 8.2,
+  fries: 5.6,
+  nuggets: 7.9,
+  fish: 12.4,
+  prawns: 15.8,
+  lamb: 16.7,
+  pork: 11.9,
+  applesauce: 3.8,
+  mayonnaise: 5.2,
+  ketchup: 4.7,
+  mustard: 3.9,
+  vinegar: 3.4,
+  oil: 6.5,
+  oliveoil: 9.8,
+  detergent: 8.5,
+  dishwash: 4.4,
+  shampoo: 7.2,
+  conditioner: 7.1,
+  soap: 2.8,
+  toothpaste: 4.5,
+  toothbrush: 3.6,
+  toiletpaper: 11.4,
+  tissues: 3.2,
+  paper towels: 4.6,
+  deodorant: 6.9,
+  razors: 9.7,
+  batteries: 8.8,
+  dogfood: 14.2,
+  catfood: 11.6,
+  babywipes: 5.9,
+  diapers: 18.9,
+  energy drink: 3.9,
+  protein bar: 4.4,
+  frozen vegetables: 4.8,
+  frozen berries: 7.6,
+  garlic: 1.9,
+  ginger: 2.3,
+  lemons: 4.1,
+  limes: 3.9,
+  wraps: 4.7,
+  burger buns: 4.5,
+  hotdog buns: 4.2,
+  sour cream: 4.6,
+  cottage cheese: 5.1,
+  sparkling water: 3.6,
+  muesli bars: 5.9,
+  popcorn: 3.3
+};
+    
+function fallbackPrice(storeName, item) {
+  const normalized = item
+    .toLowerCase()
+    .replace(/\s+/g, "");
 
+  const base =
+    basePrices[normalized] ||
+    basePrices[item.toLowerCase()] ||
+    5.99;
+
+  let seed = 0;
+
+  const combined = storeName + item;
+
+  for (let i = 0; i < combined.length; i++) {
+    seed += combined.charCodeAt(i);
+  }
+
+  let storeAdjustment = 0;
+
+  if (storeName.includes("Pak")) storeAdjustment = -0.6;
+  if (storeName.includes("Woolworths")) storeAdjustment = 0.4;
+  if (storeName.includes("Countdown")) storeAdjustment = 0.4;
+  if (storeName.includes("New World")) storeAdjustment = 0.7;
+  if (storeName.includes("Fresh Choice")) storeAdjustment = 0.9;
+  if (storeName.includes("Warehouse")) storeAdjustment = -0.2;
+
+  const variation = ((seed % 90) - 45) / 100;
+
+  return Number(
+    (base + variation + storeAdjustment).toFixed(2)
+  );
+}
   const base = basePrices[item.toLowerCase()] || 5.99;
 
   let seed = 0;
