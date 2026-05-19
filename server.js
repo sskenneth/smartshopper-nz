@@ -1,76 +1,37 @@
 import express from "express";
 import cors from "cors";
-import { stores } from "./stores.js";
-import { scrapeStoreProduct } from "./scraper.js";
 
 const app = express();
-
 app.use(cors());
 app.use(express.json());
 
-app.get("/api/search", async (req, res) => {
-  const item = String(req.query.item || "").trim();
-
-  if (!item) {
-    return res.status(400).json({ error: "Missing item query" });
-  }
-
-  const results = [];
-
-  for (const store of stores) {
-    const result = await scrapeStoreProduct(store, item);
-    results.push(result);
-  }
-
-  res.json(results);
+app.get("/", (req, res) => {
+  res.send("SmartShopper backend is running");
 });
 
-app.get("/api/compare", async (req, res) => {
-  const items = String(req.query.items || "")
-    .split(",")
-    .map((x) => x.trim())
-    .filter(Boolean);
-
-  if (!items.length) {
-    return res.status(400).json({ error: "Missing grocery items" });
-  }
-
-  const comparison = [];
-
-  for (const store of stores) {
-    const basket = [];
-
-    for (const item of items) {
-      const result = await scrapeStoreProduct(store, item);
-
-      basket.push({
-        item,
-        productName: result.productName,
-        price: result.price,
-        source: result.source,
-        updated: result.updated
-      });
+app.get("/api/compare", (req, res) => {
+  res.json([
+    {
+      store: "Pak'nSave Dunedin",
+      total: 72.4,
+      basket: [
+        { item: "milk", price: 4.89 },
+        { item: "bread", price: 2.99 }
+      ]
+    },
+    {
+      store: "New World Gardens",
+      total: 81.1,
+      basket: [
+        { item: "milk", price: 5.39 },
+        { item: "bread", price: 3.49 }
+      ]
     }
-
-    const validPrices = basket.filter((p) => typeof p.price === "number");
-
-    const total = validPrices.reduce((sum, p) => sum + p.price, 0);
-
-    comparison.push({
-      store: store.name,
-      basket,
-      total: Number(total.toFixed(2)),
-      missingItems: basket.filter((p) => p.price === null).map((p) => p.item)
-    });
-  }
-
-  comparison.sort((a, b) => a.total - b.total);
-
-  res.json(comparison);
+  ]);
 });
 
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
-  console.log(`SmartShopper API running on port ${PORT}`);
+  console.log(`SmartShopper backend running on port ${PORT}`);
 });
