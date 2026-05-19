@@ -69,6 +69,8 @@ app.get("/api/compare", async (req, res) => {
   res.json(comparison);
 });
 
-app.listen(4000, () => {
-  console.log("SmartShopper scraper API running on http://localhost:4000");
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => {
+  console.log(`SmartShopper API running on port ${PORT}`);
 });
