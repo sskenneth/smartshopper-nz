@@ -10,7 +10,7 @@ app.use(express.json());
 
 const cache = new Map();
 
-  const basePrices = {
+const basePrices = {
   milk: 5.2,
   bread: 3.4,
   butter: 6.8,
@@ -60,16 +60,11 @@ const cache = new Map();
   spinach: 4.6,
   mushrooms: 5.7,
   capsicum: 4.9,
-  cornflakes: 6.3,
   chips: 3.8,
   crackers: 3.4,
   biscuits: 4.2,
   chocolate: 3.7,
   lollies: 3.1,
-  nuts: 5.8,
-  peanutbutter: 4.7,
-  jam: 4.3,
-  honey: 7.5,
   tuna: 3.9,
   salmon: 8.9,
   bakedbeans: 2.4,
@@ -82,7 +77,6 @@ const cache = new Map();
   prawns: 15.8,
   lamb: 16.7,
   pork: 11.9,
-  applesauce: 3.8,
   mayonnaise: 5.2,
   ketchup: 4.7,
   mustard: 3.9,
@@ -90,7 +84,6 @@ const cache = new Map();
   oil: 6.5,
   oliveoil: 9.8,
   detergent: 8.5,
-  dishwash: 4.4,
   shampoo: 7.2,
   conditioner: 7.1,
   soap: 2.8,
@@ -98,32 +91,23 @@ const cache = new Map();
   toothbrush: 3.6,
   toiletpaper: 11.4,
   tissues: 3.2,
-  paper towels: 4.6,
   deodorant: 6.9,
   razors: 9.7,
   batteries: 8.8,
   dogfood: 14.2,
   catfood: 11.6,
-  babywipes: 5.9,
   diapers: 18.9,
-  energy drink: 3.9,
-  protein bar: 4.4,
-  frozen vegetables: 4.8,
-  frozen berries: 7.6,
   garlic: 1.9,
   ginger: 2.3,
   lemons: 4.1,
-  limes: 3.9,
   wraps: 4.7,
-  burger buns: 4.5,
-  hotdog buns: 4.2,
-  sour cream: 4.6,
-  cottage cheese: 5.1,
-  sparkling water: 3.6,
-  muesli bars: 5.9,
+  burgerbuns: 4.5,
+  sourcream: 4.6,
+  cottagecheese: 5.1,
+  sparklingwater: 3.6,
   popcorn: 3.3
 };
-    
+
 function fallbackPrice(storeName, item) {
   const normalized = item
     .toLowerCase()
@@ -157,19 +141,6 @@ function fallbackPrice(storeName, item) {
     (base + variation + storeAdjustment).toFixed(2)
   );
 }
-  const base = basePrices[item.toLowerCase()] || 5.99;
-
-  let seed = 0;
-  const combined = storeName + item;
-
-  for (let i = 0; i < combined.length; i++) {
-    seed += combined.charCodeAt(i);
-  }
-
-  const variation = ((seed % 90) - 45) / 100;
-
-  return Number((base + variation).toFixed(2));
-}
 
 function extractPrice(text) {
   const match = text.match(/\$?\s?(\d+(?:\.\d{2})?)/);
@@ -188,7 +159,8 @@ async function fetchWithTimeout(url, timeout = 5000) {
     const response = await fetch(url, {
       signal: controller.signal,
       headers: {
-        "User-Agent": "Mozilla/5.0 SmartShopper Research Bot"
+        "User-Agent":
+          "Mozilla/5.0 SmartShopper Research Bot"
       }
     });
 
