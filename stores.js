@@ -1,58 +1,85 @@
 export const stores = [
   {
     name: "Pak'nSave Dunedin",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.paknsave.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "New World Centre City",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.newworld.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "New World Gardens",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.newworld.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "The Warehouse",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.thewarehouse.co.nz/search?q="
   },
+
   {
     name: "Countdown South Dunedin",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.woolworths.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "Fresh Choice Roslyn",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.freshchoice.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "Countdown Dunedin Central",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.woolworths.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "Woolworths Mornington",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.woolworths.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "Fresh Choice Green Island",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.freshchoice.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "Four Square Caversham",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.foursquare.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "Four Square Brockville",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.foursquare.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "Foodlands Four Square",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.foursquare.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "New World Mosgiel",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.newworld.co.nz/shop/searchproducts?search="
   },
+
   {
     name: "Woolworths Mosgiel",
-    searchUrl: "PASTE_STORE_SEARCH_URL_HERE?q="
+    searchUrl:
+      "https://www.woolworths.co.nz/shop/searchproducts?search="
   }
 ];
