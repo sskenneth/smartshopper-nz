@@ -24,7 +24,10 @@ export async function scrapeStoreProduct(store, item) {
 
   await sleep(800);
 
-  const url = store.searchUrl + encodeURIComponent(item);
+  const url =
+  store.searchUrl +
+  encodeURIComponent(item) +
+  (store.searchSuffix || "");
 
   try {
     const response = await fetch(url, {
