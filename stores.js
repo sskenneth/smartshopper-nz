@@ -2,25 +2,29 @@ export const stores = [
   {
     name: "Pak'nSave Dunedin",
     searchUrl:
-      "https://www.paknsave.co.nz/shop/searchproducts?search="
+      "https://www.paknsave.co.nz/shop/search?pg=1&q=",
+    searchSuffix: "&sf=shopping"
   },
 
   {
     name: "New World Centre City",
     searchUrl:
-      "https://www.newworld.co.nz/shop/searchproducts?search="
+      "https://www.newworld.co.nz/shop/search?pg=1&q=",
+    searchSuffix: "&sf=product"
   },
 
   {
     name: "New World Gardens",
     searchUrl:
-      "https://www.newworld.co.nz/shop/searchproducts?search="
+      "https://www.newworld.co.nz/shop/search?pg=1&q=",
+    searchSuffix: "&sf=product"
   },
 
   {
     name: "The Warehouse",
     searchUrl:
-      "https://www.thewarehouse.co.nz/search?q="
+      "https://www.thewarehouse.co.nz/search?q=",
+    searchSuffix: "&lang=default"
   },
 
   {
@@ -32,7 +36,7 @@ export const stores = [
   {
     name: "Fresh Choice Roslyn",
     searchUrl:
-      "https://www.freshchoice.co.nz/shop/searchproducts?search="
+      "https://www.freshchoice.co.nz/search/SearchForm/?Search="
   },
 
   {
@@ -50,31 +54,21 @@ export const stores = [
   {
     name: "Fresh Choice Green Island",
     searchUrl:
-      "https://www.freshchoice.co.nz/shop/searchproducts?search="
-  },
-
-  {
-    name: "Four Square Caversham",
-    searchUrl:
-      "https://www.foursquare.co.nz/shop/searchproducts?search="
-  },
-
-  {
-    name: "Four Square Brockville",
-    searchUrl:
-      "https://www.foursquare.co.nz/shop/searchproducts?search="
+      "https://www.freshchoice.co.nz/search/SearchForm/?Search="
   },
 
   {
     name: "Foodlands Four Square",
     searchUrl:
-      "https://www.foursquare.co.nz/shop/searchproducts?search="
+      "https://thefoodland.nz/?s=",
+    searchSuffix: "&post_type=product"
   },
 
   {
     name: "New World Mosgiel",
     searchUrl:
-      "https://www.newworld.co.nz/shop/searchproducts?search="
+      "https://www.newworld.co.nz/shop/search?pg=1&q=",
+    searchSuffix: "&sf=product"
   },
 
   {
