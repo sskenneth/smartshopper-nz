@@ -1,7 +1,7 @@
-import express from "express";
-import cors from "cors";
-import * as cheerio from "cheerio";
-import { stores } from "./stores.js";
+const express = require("express");
+const cors = require("cors");
+const cheerio = require("cheerio");
+const { stores } = require("./stores");
 
 const app = express();
 
