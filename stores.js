@@ -1,4 +1,4 @@
-export const stores = [
+const stores = [
   {
     name: "Pak'nSave Dunedin",
     searchUrl:
@@ -70,3 +70,4 @@ export const stores = [
       "https://www.woolworths.co.nz/shop/searchproducts?search="
   }
 ];
+module.exports = { stores };
